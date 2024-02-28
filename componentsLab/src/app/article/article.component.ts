@@ -21,4 +21,17 @@ export class ArticleComponent {
     this.descToShow = "";
     this.articleDescLen = 0;
   }
+
+  readMore(): void {
+    this.articleDescLen += this.symbols;
+
+    if (this.articleDescLen > this.articleDesc.length) {
+      this.showReadMoreBtn = false;
+      this.showHideBtn = true;
+    } else {
+      this.descToShow += this.articleDesc.substring(0, this.articleDescLen);
+    }
+  }
+
+  
 }

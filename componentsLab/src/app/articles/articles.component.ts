@@ -11,10 +11,11 @@ export class ArticlesComponent implements OnInit {
   articles: Article[];
 
   constructor() {
-    this.articles = [];
+    this.articles = []
   }
 
   ngOnInit(): void {
       this.articles = new ArticleData().getData();
+      console.log(this.articles)
   }
 }

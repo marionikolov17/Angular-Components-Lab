@@ -23,18 +23,21 @@ export class ArticleComponent {
   }
 
   readMore(): void {
-    this.articleDescLen += this.symbols;
+    if (this.articleDescLen < this.articleDesc.length) {
+      this.articleDescLen += this.symbols;
+      this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
+    }
 
-    if (this.articleDescLen > this.articleDesc.length) {
+    if (this.articleDescLen >= this.articleDesc.length) {
       this.showReadMoreBtn = false;
       this.showHideBtn = true;
     } else {
-      this.descToShow += this.articleDesc.substring(0, this.articleDescLen);
+      this.descToShow = this.articleDesc.substring(0, this.articleDescLen);
     }
   }
 
   toggleImage(): void {
-    this.imageButtonTitle = this.imageIsShown ? "Hide Image" : "Show Image";
+    this.imageButtonTitle = this.imageButtonTitle === "Show Image" ? "Hide Image" : "Show Image";
     this.imageIsShown = !this.imageIsShown;
   }
 
